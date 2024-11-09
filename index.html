@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planning App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul id="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#shopping-list">Shopping List</a></li>
+            <li><a href="#inventory">Pantry Inventory</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to the Meal Planner</h1>
+        <p>Select a tab to get started!</p>
+    
+        <!-- ChatGPT Chat Window -->
+        <div id="chat-container">
+            <h3>Recipe Inspiration</h3>
+            <div id="chat-window"></div>
+            <input type="text" id="user-input" placeholder="Ask for a recipe or inspiration...">
+            <button id="send-message">Send</button>
+        </div>
+    </section>
+    
+
+    <!-- Menu Generator Section -->
+    <section id="menu" style="display: none;">
+       <h2>Menu Generator</h2>
+       
+       <!-- Calendar and Button Controls -->
+       <div id="menu-controls">
+           <label for="start-date">Select Start Date:</label>
+           <input type="date" id="start-date">
+           
+           <label for="end-date">Select End Date:</label>
+           <input type="date" id="end-date">
+           
+           <button id="generate-menu">Generate Menu</button>
+       </div>
+       
+       <!-- Framed container for generated menu -->
+       <div id="menu-container">
+           <div id="menu-output"></div> <!-- Placeholder for the generated menu -->
+       </div>
+    </section>
+
+    <!-- Shopping List Section -->
+    <section id="shopping-list" style="display: none;">
+        <h2>Shopping List</h2>
+        
+        <!-- Framed container for shopping list -->
+        <div id="shopping-list-container">
+            <div id="shopping-list-output"></div> <!-- Placeholder for the shopping list -->
+        </div>
+    </section>
+
+    <!-- Pantry Inventory Section -->
+    <section id="inventory" style="display: none;">
+        <h2>Pantry Inventory</h2>
+        <p>Your pantry inventory will appear here.</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
