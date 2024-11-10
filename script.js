@@ -191,23 +191,17 @@ function toggleHideMarkedItems() {
     document.getElementById("dropdown-button").textContent = hideMarked ? "Show All Items" : "Hide Marked Items";
     document.getElementById("toggle-hide-marked").textContent = hideMarked ? "Show All Items" : "Hide Marked Items";
 }
-// Function to interact with ChatGPT API
+// Function to interact with the backend API
 async function askChatGPT(question) {
-    const response = await fetch("https://api.openai.com/v1/completions", {
+    const response = await fetch("https://maltidbackend.onrender.com/api/ask-chatgpt", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer YOUR_API_KEY`  // Replace with your actual API key
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            model: "text-davinci-003",
-            prompt: question,
-            max_tokens: 150,
-            temperature: 0.5
-        })
+        body: JSON.stringify({ question })
     });
     const data = await response.json();
-    return data.choices[0].text.trim();
+    return data.trim(); // Assuming backend returns the response text directly
 }
 
 // Function to handle chat interaction
@@ -254,6 +248,7 @@ function parseAndAddRecipe(response) {
         document.getElementById("chat-window").innerHTML += `<p>Added "${recipeName}" to your meal options!</p>`;
     }
 }
+
 
 // Event listener for sending chat messages
 document.getElementById("send-message").addEventListener("click", handleSendMessage);
